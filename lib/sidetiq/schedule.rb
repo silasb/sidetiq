@@ -34,7 +34,7 @@ module Sidetiq
     # Returns true if a job is due, otherwise false.
     def schedule_next?(time)
       next_occurrence = @schedule.next_occurrence(time)
-      if @last_scheduled != next_occurrence.to_i
+      if @last_scheduled != next_occurrence.to_i && 2*time.to_i > @last_scheduled.to_i + next_occurrence.to_i
         @last_scheduled = next_occurrence.to_i
         return true
       end
