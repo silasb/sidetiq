@@ -62,5 +62,6 @@ module Sidetiq
 end
 
 if Sidekiq.server?
+  Celluloid.boot
   Sidetiq::Supervisor.run!
 end
